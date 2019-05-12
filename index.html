@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Word Guess Game</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <h1 class="text-center ">HANGMAN</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="assets/images/GOT.jpeg" id="image" width="200" height="200"></img>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <h4>Press any key to get started!</h4>
+                    <div class="card-body">
+                        <div id="wins">Wins: 0</div>
+                        <br>
+                        <div id="guesses">Guesses Remaining: 4</div>
+                        <br>
+                        <h2>Current Word</h2>
+                        <div id="answer"></div>
+                        <br>
+                        <h6>Letters Guessed</h6>
+                        <div id="letters-guessed"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>
