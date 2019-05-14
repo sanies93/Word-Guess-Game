@@ -1,6 +1,6 @@
 body {
     background-image: url("../images/winterfell.jpg");
-    background: no-repeat;
+    background-repeat: no-repeat;
     font-family: 'Cinzel Decorative', cursive;
     font-size: 24px;
 }

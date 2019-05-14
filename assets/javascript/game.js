@@ -55,52 +55,53 @@ wordGuess();
 
 document.onkeyup = function (event) {
 
-    // // Check user inputs letter and make it lowercase
-    // char = event.key.toLowerCase;
-    // function isLetter(char) {
-    //     if (/[a-zA-Z]/.test(char)) {
-    //         console.log(char);
-    //         return true;
-    //     }
-    // }
+    // Check user inputs letter
+    function isLetter(char) {
+            console.log(char);
+            return /^[a-zA-Z]$/i.test(char);
+    }
+    console.log(isLetter(event.key));
 
     document.getElementById("guesses").textContent = "Guesses: " + guesses;
 
-    // Places the guessed letter in correct index of the hidden word
-    if (currentWord.includes(event.key)) {
+    if (isLetter(event.key)) {
 
-        for (var i = 0; i < currentWord.length; i++) {
+        // Places the guessed letter in correct index of the hidden word
+        if (currentWord.includes(event.key)) {
 
-            if (currentWord[i] === event.key) {
+            for (var i = 0; i < currentWord.length; i++) {
 
-                word[i] = event.key;
+                if (currentWord[i] === event.key) {
 
-                document.getElementById("answer").textContent = word.join(" ");
+                    word[i] = event.key;
+
+                    document.getElementById("answer").textContent = word.join(" ");
+
+                }
+
+            }
+
+        } else {
+
+            // Places incorrect letter guesses in an array and decrements number of guesses
+            if (lettersGuessed.indexOf(event.key) === -1) {
+
+                lettersGuessed.push(event.key);
+                document.getElementById("letters-guessed").textContent = lettersGuessed.join(", ");
+
+                guesses--;
+                document.getElementById("guesses").textContent = "Guesses: " + guesses;
+            }
+
+            // Restarts the game once all guesses have been used
+            if (guesses === 0) {
+
+                document.getElementById("guesses").textContent = "No more guesses";
+                restartGame();
 
             }
 
         }
-
-    } else {
-
-        // Places incorrect letter guesses in an array and decrements number of guesses
-        if (lettersGuessed.indexOf(event.key) === -1) {
-
-            lettersGuessed.push(event.key);
-            document.getElementById("letters-guessed").textContent = lettersGuessed.join(", ");
-
-            guesses--;
-            document.getElementById("guesses").textContent = "Guesses: " + guesses;
-        }
-
-        // Restarts the game once all guesses have been used
-        if (guesses === 0) {
-
-            document.getElementById("guesses").textContent = "No more guesses";
-            restartGame();
-
-        }
-
     }
 
     var wordGuessed = word.join(""); // Formats to compare the word
